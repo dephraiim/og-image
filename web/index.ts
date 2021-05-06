@@ -149,10 +149,12 @@ const markdownOptions: DropdownOption[] = [
 
 const imageLightOptions: DropdownOption[] = [
   { text: 'Lightning', value: 'https://i.imgur.com/GpQk5wG.png' },
+  { text: 'Astrosaurus', value: 'https://i.pinimg.com/originals/3a/a8/1a/3aa81afb1488812aa4603382b2fcdd03.png' },
 ];
 
 const imageDarkOptions: DropdownOption[] = [
   { text: 'Lightning', value: 'https://i.imgur.com/GpQk5wG.png' },
+  { text: 'Astrosaurus', value: 'https://i.pinimg.com/originals/3a/a8/1a/3aa81afb1488812aa4603382b2fcdd03.png' },
 ];
 
 const widthOptions = [
@@ -206,7 +208,8 @@ const App = (_: any, state: AppState, setState: SetState) => {
     fontSize = '100px',
     theme = 'light',
     md = true,
-    text = '**Hello** World',
+    text = '**Astro**saurus',
+    text2 = "Duncan",
     images = [imageLightOptions[0].value],
     widths = [],
     heights = [],
@@ -283,6 +286,16 @@ const App = (_: any, state: AppState, setState: SetState) => {
           label: 'Text Input',
           input: H(TextInput, {
             value: text,
+            oninput: (val: string) => {
+              console.log('oninput ' + val);
+              setLoadingState({ text: val, overrideUrl: url });
+            },
+          }),
+        }),
+        H(Field, {
+          label: 'Text Input',
+          input: H(TextInput, {
+            value: text2,
             oninput: (val: string) => {
               console.log('oninput ' + val);
               setLoadingState({ text: val, overrideUrl: url });
